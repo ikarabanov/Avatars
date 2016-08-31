@@ -22,6 +22,7 @@ namespace Avatars
         ITitleIntroState titleIntroState;
         IMainMenuState startMenuState;
         IGamePlayState gamePlayState;
+        IConversationState conversationState;
 
         static Rectangle screenRectangle;
 
@@ -78,6 +79,7 @@ namespace Avatars
             titleIntroState = new TitleIntroState(this);
             startMenuState = new MainMenuState(this);
             gamePlayState = new GamePlayState(this);
+            conversationState = new ConversationState(this);
             
             gameStateManager.ChangeState((TitleIntroState)titleIntroState, PlayerIndex.One);
 
