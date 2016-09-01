@@ -46,7 +46,8 @@ namespace Avatars.GameStates
         }
         protected override void LoadContent()
         {
-            font = GameRef.Content.Load<SpriteFont>(@"Fonts\scenefont");
+            //font = GameRef.Content.Load<SpriteFont>(@"Fonts\scenefont");
+            font = GameRef.Content.Load<SpriteFont>(@"Fonts\GameFont");
             background = GameRef.Content.Load<Texture2D>(@"Scenes\scenebackground");
             base.LoadContent();
         }

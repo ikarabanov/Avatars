@@ -146,8 +146,5 @@
 /build:MIsc/selected.png
 
 #begin Fonts/scenefont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:Fonts/scenefont.spritefont
+/copy:Fonts/scenefont.spritefont
 

@@ -221,7 +221,8 @@ namespace Avatars.ConversationComponents
         public static void CreateConversations(Game gameRef)
         {
             Texture2D sceneTexture = gameRef.Content.Load<Texture2D>(@"Scenes\scenebackground");
-            SpriteFont sceneFont = gameRef.Content.Load<SpriteFont>(@"Fonts\scenefont");
+            //SpriteFont sceneFont = gameRef.Content.Load<SpriteFont>(@"Fonts\scenefont");
+            SpriteFont sceneFont = gameRef.Content.Load<SpriteFont>(@"Fonts\GameFont");
 
             Conversation c = new Conversation("MarissaHello", "Hello", sceneTexture, sceneFont);
             c.BackgroundName = "scenebackground";
