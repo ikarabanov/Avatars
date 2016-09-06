@@ -39,7 +39,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AvatarComponents\Avatar.cs" />
+    <Compile Include="AvatarComponents\AvatarManager.cs" />
+    <Compile Include="AvatarComponents\Bless.cs" />
+    <Compile Include="AvatarComponents\Block.cs" />
+    <Compile Include="AvatarComponents\Burst.cs" />
+    <Compile Include="AvatarComponents\Curse.cs" />
+    <Compile Include="AvatarComponents\Flare.cs" />
+    <Compile Include="AvatarComponents\Frostbite.cs" />
+    <Compile Include="AvatarComponents\Gust.cs" />
+    <Compile Include="AvatarComponents\Haste.cs" />
+    <Compile Include="AvatarComponents\Heal.cs" />
     <Compile Include="AvatarComponents\IMove.cs" />
+    <Compile Include="AvatarComponents\MoveManager.cs" />
+    <Compile Include="AvatarComponents\RockThrow.cs" />
+    <Compile Include="AvatarComponents\Shade.cs" />
+    <Compile Include="AvatarComponents\Shock.cs" />
+    <Compile Include="AvatarComponents\Tackle.cs" />
     <Compile Include="CharacterComponents\Character.cs" />
     <Compile Include="CharacterComponents\CharacterManager.cs" />
     <Compile Include="CharacterComponents\ICharacter.cs" />
@@ -83,6 +98,7 @@
     <Content Include="Content\PlayerSprites\femaleplayer.png" />
     <Content Include="Content\PlayerSprites\maleplayer.png" />
     <Content Include="Content\Tiles\tileset1.png" />
+    <None Include="DATA\Avatars.csv" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

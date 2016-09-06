@@ -110,6 +110,8 @@ namespace Avatars
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            AvatarComponents.MoveManager.FillMoves();
+            AvatarComponents.AvatarManager.FromFile(@".\DATA\Avatars.csv", Content);
         }
 
         protected override void UnloadContent()
