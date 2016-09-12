@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Avatars.PlayerComponents;
 using Avatars.CharacterComponents;
 using Avatars.ConversationComponents;
+using Avatars.AvatarComponents;
 
 namespace Avatars.GameStates
 {
@@ -41,8 +42,7 @@ namespace Avatars.GameStates
 
         protected override void LoadContent()
         {
-            Texture2D spriteSheet = content.Load<Texture2D>(@"PlayerSprites\maleplayer");
-            player = new Player(GameRef, "Wesley", false, spriteSheet);
+
         }
 
         public override void Update(GameTime gameTime)
@@ -154,6 +154,21 @@ namespace Avatars.GameStates
                 }
             }
 
+            if(Xin.CheckKeyReleased(Keys.B))
+            {
+                foreach(string s in map.Characters.Keys)
+                {
+                    ICharacter c = CharacterManager.Instance.GetCharacter(s);
+                    float distance = Vector2.Distance(player.Sprite.Center, c.Sprite.Center);
+
+                    if (Math.Abs(distance) < 72f)
+                    {
+                        GameRef.BattleState.SetAvatars(player.CurrentAvatar, c.BattleAvatar);
+                        manager.PushState((BattleState)GameRef.BattleState, PlayerIndexInControl);
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 
@@ -180,6 +195,11 @@ namespace Avatars.GameStates
 
         public void SetUpNewGame()
         {
+            Texture2D spriteSheet = content.Load<Texture2D>(@"PlayerSprites\maleplayer");
+            player = new Player(GameRef, "Wesley", false, spriteSheet);
+            player.AddAvatar("fire", AvatarManager.GetAvatar("fire"));
+            player.SetAvatar("fire");
+
             Texture2D tiles = GameRef.Content.Load<Texture2D>(@"Tiles\tileset1");
             TileSet set = new TileSet(8, 8, 32, 32);
             set.Texture = tiles;

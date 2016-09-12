@@ -99,6 +99,9 @@ namespace Avatars.CharacterComponents
 
             character.conversation = parts[3];
 
+            for (int i = 4; i < 10 && i < parts.Length; i++)
+                character.avatars[i - 4] = AvatarManager.GetAvatar(parts[i].ToLowerInvariant());
+
             return character;
         }
 

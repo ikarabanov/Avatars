@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Avatars.TileEngine;
+using Avatars.AvatarComponents;
 
 namespace Avatars.PlayerComponents
 {
@@ -13,16 +14,18 @@ namespace Avatars.PlayerComponents
     {
         #region Field Region
 
-        private Game1 gameRef;
-        private string name;
-        private bool gender;
-        private string mapName;
-        private Point tile;
-        private AnimatedSprite sprite;
-        private Texture2D texture;
-        private float speed = 180f;
+        protected Game1 gameRef;
+        protected string name;
+        protected bool gender;
+        protected string mapName;
+        protected Point tile;
+        protected AnimatedSprite sprite;
+        protected Texture2D texture;
+        protected float speed = 180f;
 
-        private Vector2 position;
+        protected Vector2 position;
+        protected Dictionary<string, Avatar> avatars = new Dictionary<string, Avatar>();
+        private string currentAvatar;
 
         #endregion
 
@@ -43,6 +46,10 @@ namespace Avatars.PlayerComponents
         {
             get { return speed; }
             set { speed = value; }
+        }
+        public virtual Avatar CurrentAvatar
+        {
+            get { return avatars[currentAvatar]; }
         }
 
         #endregion
@@ -69,7 +76,24 @@ namespace Avatars.PlayerComponents
         #endregion
 
         #region Method Region
-
+        public virtual void AddAvatar(string avatarName, Avatar avatar)
+        {
+            if (!avatars.ContainsKey(avatarName))
+                avatars.Add(avatarName, avatar);
+        }
+        public virtual Avatar GetAvatar(string avatarName)
+        {
+            if (avatars.ContainsKey(currentAvatar))
+                return avatars[avatarName];
+            return null;
+        }
+        public virtual void SetAvatar(string avatarName)
+        {
+            if (avatars.ContainsKey(avatarName))
+                currentAvatar = avatarName;
+            else
+                throw new IndexOutOfRangeException();
+        }
         public void SavePlayer()
         {
         }

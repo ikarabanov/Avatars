@@ -23,6 +23,7 @@ namespace Avatars
         IMainMenuState startMenuState;
         IGamePlayState gamePlayState;
         IConversationState conversationState;
+        IBattleState battleState;
 
         static Rectangle screenRectangle;
 
@@ -49,6 +50,10 @@ namespace Avatars
         public IGamePlayState GamePlayState
         {
             get { return gamePlayState; }
+        }
+        public IBattleState BattleState
+        {
+            get { return battleState; }
         }
 
         public Dictionary<AnimationKey, Animation> PlayerAnimations
@@ -80,6 +85,7 @@ namespace Avatars
             startMenuState = new MainMenuState(this);
             gamePlayState = new GamePlayState(this);
             conversationState = new ConversationState(this);
+            battleState = new BattleState(this);
             
             gameStateManager.ChangeState((TitleIntroState)titleIntroState, PlayerIndex.One);
 
